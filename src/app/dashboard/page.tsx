@@ -1,19 +1,9 @@
 'use client';
 
-import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Button } from '@/components/ui/button';
+import { FileUpload } from '@/components/FileUpload/FileUpload';
 
 export default function Page() {
     const formSchema = z.object({
@@ -22,39 +12,22 @@ export default function Page() {
         })
     });
 
-    const form = useForm<z.infer<typeof formSchema>>({
+    type ValidationSchema = z.infer<typeof formSchema>;
+
+    const form = useForm<ValidationSchema>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             upload: ''
         }
     });
 
-    const onSubmit = (data: z.infer<typeof formSchema>) => console.log(data);
+    const onSubmit: SubmitHandler<ValidationSchema> = (data) =>
+        console.log(data);
 
     return (
         <main>
             <h1>Processor</h1>
-            <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)}>
-                    <FormField
-                        control={form.control}
-                        name="upload"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>File input</FormLabel>
-                                <FormControl>
-                                    <Input type="file" {...field} />
-                                </FormControl>
-                                <FormDescription>
-                                    Please drag a file of type CSV or XML
-                                </FormDescription>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    ></FormField>
-                    <Button type="submit">Submit</Button>
-                </form>
-            </Form>
+            <FileUpload form={form} onSubmit={onSubmit} />
         </main>
     );
 }
