@@ -10,13 +10,16 @@ import {
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { SubmitHandler, UseFormReturn } from 'react-hook-form';
+import { ValidationSchema } from '@/app/dashboard/page';
 
 type FileUploadProps = {
-    form: UseFormReturn<{ upload: string }>;
-    onSubmit: SubmitHandler<{ upload: string }>;
+    form: UseFormReturn<ValidationSchema>;
+    onSubmit: SubmitHandler<ValidationSchema>;
 };
 
 export const FileUpload = ({ form, onSubmit }: FileUploadProps) => {
+    const fileRef = form.register('upload', { required: true });
+
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -27,7 +30,7 @@ export const FileUpload = ({ form, onSubmit }: FileUploadProps) => {
                         <FormItem>
                             <FormLabel>File input</FormLabel>
                             <FormControl>
-                                <Input type="file" {...field} />
+                                <Input type="file" {...fileRef} />
                             </FormControl>
                             <FormDescription>
                                 Please drag a file of type CSV or XML
