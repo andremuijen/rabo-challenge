@@ -12,7 +12,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { processFile } from '@/app/actions/parse-file';
+import { processStatements } from '@/app/actions/process-statements';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { parseFile } from '@/lib/parser';
@@ -30,10 +30,10 @@ export const FileUpload = () => {
 
     const onSubmit: SubmitHandler<ValidationSchema> = async (data) => {
         const file = data.upload[0] as File;
-        const result = await parseFile(file);
+        const statements = await parseFile(file);
         // const test = new DOMParser().parseFromString(result, 'text/xml');
-        console.log(file, result);
-        await processFile([{ kak: 'hjpoer', lald: 'sadf' }, { nopg: 'sdf' }]);
+        console.log(file, statements);
+        await processStatements(statements);
     };
 
     const fileRef = form.register('upload', { required: true });

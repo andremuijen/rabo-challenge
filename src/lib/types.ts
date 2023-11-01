@@ -1,3 +1,5 @@
+import { ObjectId } from 'mongodb';
+
 export type CSVProps = {
     Reference: string;
     'Account Number': string;
@@ -14,4 +16,14 @@ export type StatementProps = {
     start: number;
     end: number;
     mutation: number;
+};
+
+export type StatementErrorProps = StatementProps & {
+    error: string;
+};
+
+export type FileProps = {
+    ref: string;
+    timestamp: Date;
+    ids: ObjectId[];
 };

@@ -19,3 +19,14 @@ export const FormUploadSchema = z.object({
             'Please use .csv or .xml files to process your statements.'
         )
 });
+
+export const StatementSchema = z
+    .object({
+        reference: z.string(),
+        iban: z.string(),
+        description: z.string(),
+        start: z.number(),
+        end: z.number(),
+        mutation: z.number()
+    })
+    .array();
