@@ -18,7 +18,7 @@ export type StatementProps = {
     mutation: number;
 };
 
-export type StatementErrorProps = StatementProps & {
+export type StatementWithError = StatementProps & {
     error: string;
 };
 
@@ -27,3 +27,8 @@ export type FileProps = {
     timestamp: Date;
     ids: ObjectId[];
 };
+
+export enum ErrorType {
+    Reference = 'Transaction reference should be unique',
+    Balance = 'End balance is not valid'
+}
