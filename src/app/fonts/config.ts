@@ -9,15 +9,15 @@ export const myriad = localFont({
             weight: '400',
             style: 'normal'
         },
-        {
-            path: './myriad/MYRIADPRO-CONDIT.woff',
-            weight: '400',
-            style: 'italic'
-        },
+        // {
+        //     path: './myriad/MYRIADPRO-CONDIT.woff',
+        //     weight: '400',
+        //     style: 'italic'
+        // },
         {
             path: './myriad/MYRIADPRO-BOLD.woff',
             weight: '700',
-            style: 'normal'
+            style: 'bold'
         }
     ]
 });

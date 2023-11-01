@@ -48,7 +48,11 @@ export const FileUpload = () => {
                         <FormItem>
                             <FormLabel>File input</FormLabel>
                             <FormControl>
-                                <Input type="file" {...fileRef} />
+                                <Input
+                                    className="h-40"
+                                    type="file"
+                                    {...fileRef}
+                                />
                             </FormControl>
                             <FormDescription>
                                 Please drag a file of type CSV or XML

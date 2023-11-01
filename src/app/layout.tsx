@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { myriad } from '@/app/fonts/config';
 import '@/styles/globals.css';
+import { ThemeProvider } from '@/components/ThemeProvider/ThemeProvider';
+import { ThemeToggle } from '@/components/ThemeToggle/ThemeToggle';
 
 export const metadata: Metadata = {
     title: 'Create Next App',
@@ -14,7 +16,19 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={myriad.className}>{children}</body>
+            <body className={myriad.className}>
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    <div className="container mx-auto text-right py-5">
+                        <ThemeToggle />
+                    </div>
+                    <div className="container mx-auto">{children}</div>
+                </ThemeProvider>
+            </body>
         </html>
     );
 }
