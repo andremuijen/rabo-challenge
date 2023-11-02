@@ -3,13 +3,14 @@
 import clientPromise from '@/lib/mongodb';
 import { StatementSchema } from '@/lib/schemas';
 import { FileProps, StatementProps } from '@/lib/types';
-import { revalidatePath } from 'next/cache';
 
 export async function processStatements(data: StatementProps[]) {
     try {
         StatementSchema.parse(data);
     } catch (e) {
-        throw new Error('Provided data does not match the required schema');
+        throw new Error(
+            'Provided data does not match the required format (MT940)'
+        );
     }
 
     try {
@@ -25,10 +26,7 @@ export async function processStatements(data: StatementProps[]) {
             .db('statements')
             .collection<FileProps>('statements')
             .insertOne({ ref: 'file', timestamp: new Date(), ids });
-    } catch (e) {
-        // @ts-ignore
+    } catch (e: any) {
         throw new Error(e);
     }
-
-    revalidatePath('/');
 }

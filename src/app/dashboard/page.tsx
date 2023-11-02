@@ -1,5 +1,4 @@
 import { FileUpload } from '@/components/FileUpload/FileUpload';
-import { Results } from '@/components/Results/Results';
 import { Box } from '@/components/Box/Box';
 
 export default function Page() {
@@ -7,9 +6,6 @@ export default function Page() {
         <>
             <Box>
                 <FileUpload />
-            </Box>
-            <Box>
-                <Results />
             </Box>
         </>
     );
