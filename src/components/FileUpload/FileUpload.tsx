@@ -30,9 +30,8 @@ export const FileUpload = () => {
     const onSubmit: SubmitHandler<ValidationSchema> = async (data) => {
         const file = data.upload[0] as File;
         const statements = await parseFile(file);
-        // const test = new DOMParser().parseFromString(result, 'text/xml');
-        console.log(file, statements);
         await processStatements(statements);
+        form.reset();
     };
 
     const fileRef = form.register('upload', { required: true });
