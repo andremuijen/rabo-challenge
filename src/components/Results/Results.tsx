@@ -16,9 +16,9 @@ async function getStatements() {
     const records = await client
         .db('statements')
         .collection<StatementProps>('statements')
-        .find({ _id: { $in: result?.ids } })
+        .find({ _id: { $in: result?.ids } }, { projection: { _id: false } })
         .toArray();
-
+    console.log(records);
     return records;
 }
 

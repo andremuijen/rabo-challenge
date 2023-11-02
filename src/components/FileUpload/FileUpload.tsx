@@ -6,7 +6,6 @@ import {
     FormDescription,
     FormField,
     FormItem,
-    FormLabel,
     FormMessage
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
@@ -46,7 +45,11 @@ export const FileUpload = () => {
                     name="upload"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>File input</FormLabel>
+                            <h1>File input</h1>
+                            <p>
+                                To process your statements please provide a file
+                                in the MT940 format.
+                            </p>
                             <FormControl>
                                 <Input
                                     className="h-40"
@@ -54,14 +57,14 @@ export const FileUpload = () => {
                                     {...fileRef}
                                 />
                             </FormControl>
-                            <FormDescription>
-                                Please drag a file of type CSV or XML
+                            <FormDescription className="py-2">
+                                Please select or drag a file of type CSV or XML
                             </FormDescription>
-                            <FormMessage />
+                            <FormMessage className="pb-2" />
                         </FormItem>
                     )}
                 ></FormField>
-                <Button type="submit">Submit</Button>
+                <Button type="submit">Process Statements</Button>
             </form>
         </Form>
     );

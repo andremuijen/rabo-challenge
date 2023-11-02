@@ -23,7 +23,7 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <div className="container mx-auto text-right py-5">
+                    <div className="container mx-auto text-right py-4">
                         <ThemeToggle />
                     </div>
                     <div className="container mx-auto">{children}</div>

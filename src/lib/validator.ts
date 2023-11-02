@@ -1,4 +1,5 @@
 import { ErrorType, StatementProps, StatementWithError } from '@/lib/types';
+import { WithId } from 'mongodb';
 
 export const validateStatements = (statements: StatementProps[]) => {
     const referenceErrors = statements.map((item) => {

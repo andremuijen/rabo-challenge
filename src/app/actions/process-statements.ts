@@ -25,10 +25,6 @@ export async function processStatements(data: StatementProps[]) {
             .db('statements')
             .collection<FileProps>('statements')
             .insertOne({ ref: 'file', timestamp: new Date(), ids });
-
-        console.log(result);
-        console.log(ids);
-        console.log(ref);
     } catch (e) {
         // @ts-ignore
         throw new Error(e);

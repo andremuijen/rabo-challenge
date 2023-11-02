@@ -17,7 +17,9 @@ export const columns: ColumnDef<StatementWithError>[] = [
         accessorKey: 'error',
         header: 'Error',
         cell: (props) => (
-            <Badge variant="destructive">{props.row.original.error}</Badge>
+            <Badge variant="destructive" className="rounded">
+                {props.row.original.error}
+            </Badge>
         )
     }
 ];
