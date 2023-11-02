@@ -8,7 +8,7 @@ There are two validations that need to be performed:
 - All transaction references should be unique
 - The end balance needs to be validated
 
-The project can be viewed here: https://rabo-challenge.vercel.app/dashboard/archive
+The project can be viewed here: https://rabo-challenge.vercel.app
 
 ## Getting Started
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
@@ -68,4 +68,4 @@ I've decided to use [shadcn](https://ui.shadcn.com/) as a component library. And
 - It's hard to create multiple themes when you don't have a proper Rabobank style guide. 
 
 ### The End
-Thanks for reading and feel free to contact me [andremuijen@passionatepeople.io](andremuijen@passionatepeople.io)
+Thanks for reading and feel free to contact me [andremuijen@passionatepeople.io](mailto:andremuijen@passionatepeople.io)
