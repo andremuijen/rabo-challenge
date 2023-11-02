@@ -17,11 +17,10 @@ async function getEntries() {
 
 export default async function Page() {
     const entries = await getEntries();
-    console.log(entries);
     return (
         <>
             {entries.map((entry) => (
-                <Box>
+                <Box key={entry._id.toString()}>
                     <Results date={entry.timestamp} ids={entry.ids} />
                 </Box>
             ))}

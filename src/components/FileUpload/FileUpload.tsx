@@ -73,10 +73,10 @@ export const FileUpload = () => {
                                     />
                                 </FormControl>
                                 <FormDescription className="py-2">
-                                    Please select or drag a file of type CSV or
-                                    XML
+                                    Instructions: select or drag a file of type
+                                    CSV or XML
                                 </FormDescription>
-                                <FormMessage className="pb-2" />
+                                <FormMessage className="py-2" />
                             </FormItem>
                         )}
                     ></FormField>

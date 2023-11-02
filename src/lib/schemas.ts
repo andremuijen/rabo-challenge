@@ -8,7 +8,7 @@ export const FormUploadSchema = z.object({
         .custom<FileList>((v) => v instanceof FileList)
         .refine(
             (files) => files?.length == 1,
-            'Please choose a file or drag it on the file input field.'
+            'Please select a file or drag it on the file input field.'
         )
         .refine(
             (files) => files?.[0]?.size <= MAX_FILE_SIZE,
