@@ -19,6 +19,7 @@ import { FormUploadSchema } from '@/lib/schemas';
 import { Dialog } from '@/components/Dialog/Dialog';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { ErrorType } from '@/lib/types';
 
 type ValidationSchema = z.infer<typeof FormUploadSchema>;
 
@@ -44,8 +45,12 @@ export const FileUpload = () => {
         try {
             await processStatements(statements);
             router.push('/dashboard/results');
-        } catch (e: any) {
-            setDialog({ open: true, description: e.message });
+        } catch {
+            setDialog({
+                open: true,
+                description: ErrorType.File
+            });
+            form.reset();
         }
     };
 

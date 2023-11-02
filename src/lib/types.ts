@@ -30,5 +30,6 @@ export type FileProps = {
 
 export enum ErrorType {
     Reference = 'Transaction reference should be unique',
-    Balance = 'End balance is not valid'
+    Balance = 'End balance is not valid',
+    File = "An error occurred with the provided file and the data can't be processed. Please try again and be sure the data is in MT940 format."
 }
