@@ -3,6 +3,7 @@
 import clientPromise from '@/lib/mongodb';
 import { StatementSchema } from '@/lib/schemas';
 import { FileProps, StatementProps } from '@/lib/types';
+import { revalidatePath } from 'next/cache';
 
 export async function processStatements(data: StatementProps[]) {
     try {
@@ -29,4 +30,6 @@ export async function processStatements(data: StatementProps[]) {
     } catch (e: any) {
         throw new Error(e);
     }
+
+    revalidatePath('/');
 }
