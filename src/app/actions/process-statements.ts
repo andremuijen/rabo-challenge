@@ -31,5 +31,5 @@ export async function processStatements(data: StatementProps[]) {
         throw new Error(e);
     }
 
-    revalidatePath('/');
+    revalidatePath('/', 'layout');
 }
