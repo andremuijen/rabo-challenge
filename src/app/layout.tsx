@@ -1,3 +1,5 @@
+export const fetchCache = 'force-no-store';
+
 import type { Metadata } from 'next';
 import { myriad } from '@/app/fonts/config';
 import '@/styles/globals.css';

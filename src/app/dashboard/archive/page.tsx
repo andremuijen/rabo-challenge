@@ -1,5 +1,3 @@
-'use server';
-
 import { Results } from '@/components/Results/Results';
 import { Box } from '@/components/Box/Box';
 import clientPromise from '@/lib/mongodb';
