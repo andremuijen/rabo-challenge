@@ -1,4 +1,4 @@
-export const fetchCache = 'force-no-store';
+export const dynamic = 'force-dynamic';
 
 import { Results } from '@/components/Results/Results';
 import { Box } from '@/components/Box/Box';
