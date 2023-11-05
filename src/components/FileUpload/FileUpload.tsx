@@ -20,11 +20,14 @@ import { Dialog } from '@/components/Dialog/Dialog';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ErrorType } from '@/lib/types';
+import { Spinner } from '@/components/Spinner/Spinner';
+import { useFormStatus } from 'react-dom';
 
 type ValidationSchema = z.infer<typeof FormUploadSchema>;
 
 export const FileUpload = () => {
     const router = useRouter();
+    const { pending } = useFormStatus();
 
     const [dialog, setDialog] = useState({
         open: false,
@@ -85,10 +88,20 @@ export const FileUpload = () => {
                             </FormItem>
                         )}
                     ></FormField>
-                    <Button type="submit">Process Statements</Button>
+                    <div className="flex items-center">
+                        <Button type="submit" disabled={pending}>
+                            Process Statements
+                        </Button>
+                        {pending && <Spinner />}
+                    </div>
                 </form>
             </Form>
-            {dialog.open && <Dialog message={dialog.description} />}
+            {dialog.open && (
+                <Dialog
+                    onClose={() => setDialog({ open: false, description: '' })}
+                    message={dialog.description}
+                />
+            )}
         </>
     );
 };

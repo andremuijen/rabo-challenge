@@ -9,8 +9,18 @@ import {
 } from '@/components/ui/alert-dialog';
 import { useState } from 'react';
 
-export function Dialog({ message }: { message: string }) {
+export function Dialog({
+    onClose,
+    message
+}: {
+    onClose: () => void;
+    message: string;
+}) {
     const [isOpen, setIsOpen] = useState(true);
+    const closeDialog = () => {
+        setIsOpen(false);
+        onClose?.();
+    };
     return (
         <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
             <AlertDialogContent>
@@ -19,7 +29,9 @@ export function Dialog({ message }: { message: string }) {
                     <AlertDialogDescription>{message}</AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                    <AlertDialogAction>Continue</AlertDialogAction>
+                    <AlertDialogAction onClick={closeDialog}>
+                        Continue
+                    </AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>

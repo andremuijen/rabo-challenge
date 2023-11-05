@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
     :root {
         --background: 0 0% 100%;
@@ -56,74 +55,3 @@
         @apply text-xl;
     }
 }
-
-/*243 56.1% 16.1%;*/
-
-/*@layer base {*/
-/*    body {*/
-/*        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);*/
-/*        background-size: 400% 400%;*/
-/*        animation: gradient 15s ease infinite;*/
-/*        height: 100vh;*/
-/*    }*/
-
-/*    @media (prefers-color-scheme: dark) {*/
-/*        body {*/
-/*            background: linear-gradient(-45deg, #ff8533, #fa6400, #ff0000, #ffffff);*/
-/*            background-size: 400% 400%;*/
-/*            animation: gradient 15s ease infinite;*/
-/*            height: 100vh;*/
-/*        }*/
-/*    }*/
-/*}*/
-
-/*@keyframes gradient {*/
-/*    0% {*/
-/*        background-position: 0% 50%;*/
-/*    }*/
-/*    50% {*/
-/*        background-position: 100% 50%;*/
-/*    }*/
-/*    100% {*/
-/*        background-position: 0% 50%;*/
-/*    }*/
-/*}*/
-
-
-/*@layer base {*/
-/*    * {*/
-/*        @apply border-border;*/
-/*    }*/
-/*    body {*/
-/*        @apply bg-background text-foreground;*/
-/*    }*/
-/*}*/
-
-/*#ff8533
-#fa6400*/
-
-/*
-:root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 255, 133, 51;
-    --background-end-rgb: 250, 100, 0;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 0, 0, 0;
-        --background-end-rgb: 0, 0, 0;
-    }
-}
-
-body {
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(
-            to bottom,
-            transparent,
-            rgb(var(--background-end-rgb))
-        )
-        rgb(var(--background-start-rgb));
-}
-*/
