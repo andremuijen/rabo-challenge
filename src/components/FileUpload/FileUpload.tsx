@@ -27,7 +27,7 @@ type ValidationSchema = z.infer<typeof FormUploadSchema>;
 
 export const FileUpload = () => {
     const router = useRouter();
-    const { pending } = useFormStatus();
+    const [loading, setLoading] = useState(false);
 
     const [dialog, setDialog] = useState({
         open: false,
@@ -44,9 +44,11 @@ export const FileUpload = () => {
     const onSubmit: SubmitHandler<ValidationSchema> = async (data) => {
         const file = data.upload[0] as File;
         const statements = await parseFile(file);
+        setLoading(true);
 
         try {
             await processStatements(statements);
+            setLoading(false);
             router.push('/dashboard/results');
         } catch {
             setDialog({
@@ -89,10 +91,10 @@ export const FileUpload = () => {
                         )}
                     ></FormField>
                     <div className="flex items-center">
-                        <Button type="submit" disabled={pending}>
+                        <Button type="submit" disabled={loading}>
                             Process Statements
                         </Button>
-                        {pending && <Spinner />}
+                        {loading && <Spinner />}
                     </div>
                 </form>
             </Form>
